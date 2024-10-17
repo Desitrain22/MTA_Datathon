@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 41.4 41.4">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: url(#New_Gradient_Swatch_copy_2);
+        stroke: #4a1c00;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+    </style>
+    <linearGradient id="New_Gradient_Swatch_copy_2" data-name="New Gradient Swatch copy 2" x1="22.7" y1="6.74" x2="22.7" y2="38.07" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#07859b"/>
+      <stop offset=".26" stop-color="#088199"/>
+      <stop offset=".51" stop-color="#0d7595"/>
+      <stop offset=".75" stop-color="#16628f"/>
+      <stop offset=".99" stop-color="#224786"/>
+      <stop offset="1" stop-color="#234686"/>
+    </linearGradient>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer_1">
+    <g>
+      <path class="cls-2" d="M35.69,32.5c-2.87,2.51-6.65,3.99-10.79,3.86-8-.24-14.68-6.7-15.16-14.69-.54-8.91,6.37-16.33,15.09-16.63-3.28,2.87-5.36,7.1-5.36,11.8,0,8.66,7.02,15.67,15.67,15.67.18,0,.37,0,.55-.01Z"/>
+      <rect class="cls-1" width="41.4" height="41.4"/>
+    </g>
+  </g>
+</svg>
