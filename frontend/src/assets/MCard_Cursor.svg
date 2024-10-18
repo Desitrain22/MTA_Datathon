@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40.21 41.23">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #234686;
+        font-family: AcuminConcept-WideUltraBlackItalic, 'Acumin Variable Concept';
+        font-size: 13.4px;
+        font-style: italic;
+        font-variation-settings: 'wght' 900, 'wdth' 115, 'slnt' 12;
+        font-weight: 800;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-2, .cls-3, .cls-4 {
+        stroke: #4a1c00;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-3 {
+        fill: #dc9900;
+      }
+
+      .cls-4 {
+        fill: #4a1c00;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer_1">
+    <g>
+      <g>
+        <path class="cls-3" d="M25.04,39.49L5.55,20c-1.65-1.65-1.65-4.33,0-5.98L15.14,4.44c1.65-1.65,4.33-1.65,5.98,0l18.6,18.6v7.76l-8.69,8.69c-1.65,1.65-4.33,1.65-5.98,0Z"/>
+        <rect class="cls-4" x="1.43" y="24.33" width="36.02" height="2.56" transform="translate(23.8 -6.24) rotate(45)"/>
+        <text class="cls-1" transform="translate(16.34 17.33) rotate(45)"><tspan x="0" y="0">M</tspan></text>
+      </g>
+      <path class="cls-2" d="M2.45,9.99L.53,1.77c-.17-.75.5-1.42,1.24-1.24l8.22,1.92c.79.18,1.07,1.16.5,1.74l-6.29,6.29c-.57.57-1.55.29-1.74-.5Z"/>
+    </g>
+  </g>
+</svg>
