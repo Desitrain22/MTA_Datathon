@@ -19,9 +19,10 @@ def get_mean_hourly_ridership(
 
 def get_station_ridership(
     complex_id: str,
-    hour: str,
+    hour: int,
     df: pd.DataFrame,
 ):
+    df["hours"] = df["hours"].astype(str)
     return dict(
-        df[(df["station_complex_id"] == complex_id) & (df["hours"] == hour)]
+        df[(df["station_complex_id"] == complex_id) & (df["hours"] == hour)].iloc[0]
     )
