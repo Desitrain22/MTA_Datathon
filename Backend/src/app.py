@@ -38,6 +38,5 @@ def stations_at_hour(request: Request, hour: str):
 
 
 if __name__ == "__main__":
-    global df
     df = pd.read_json("src/outputs/new_ridership.json")
     uvicorn.run(app, host="0.0.0.0", port=8000)
