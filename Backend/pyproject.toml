@@ -7,6 +7,11 @@ authors = [
 ]
 dependencies = [
     "pandas>=2.2.3",
+    "ipython>=8.28.0",
+    "ipykernel>=6.29.5",
+    "fastapi>=0.115.2",
+    "uvicorn>=0.32.0",
+    "xlrd>=2.0.1",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"
