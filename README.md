@@ -6,13 +6,13 @@ Our goal: Create a fun, interactive website where users can visualize
 - Aggregate ridership traffic for a given train line
 - Select different times to compare and contrast traffic around the whole system.
 
-Often, especially when we lived in Manhattan, we'd select different stations based on traffic. Sometimes, the extra few blocks to 49th street beats the traffic at Time Sq. Even more so, the live traffic at a stop like Fulton St's 4/5 stop can give insight on potential delays and unsafe levels of crowding.
+When we lived in Manhattan, we'd select different stations based on traffic. Sometimes, the extra few blocks to 49th St beats the traffic at Time Sq. Even more so, the live traffic at a stop like Fulton St's 4/5 stop can give insight on potential delays and unsafe levels of crowding.
 
-However, the utility is secondary to fun. We wanted to encompass as much of new york's energy as we could with our branding. After all, the MTA and it's data should be accessible for everyone.
+However, the utility is secondary to fun. We wanted to encompass as much of New York's energy as we could with our branding. Ultimately, the MTA and it's data should be accessible for everyone.
 
-Front end: React (Daniel Tao [@danxtao](https://twitter.com/danxtao) [github](https://github.com/sigmachirality))
+Frontend: React (Daniel Tao [@danxtao](https://twitter.com/danxtao) [github](https://github.com/sigmachirality))
 
-Back end + Data: Python/Pandas (Neal Patel [@HinduHops](https://twitter.com/HinduHops))
+Backend + Data: Python/Pandas (Neal Patel [@HinduHops](https://twitter.com/HinduHops))
 
 Design: Adobe Illustrator (Iris Xie [@Pi.xien](https://instagram.com/pi.xien))
 
