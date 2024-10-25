@@ -23,5 +23,5 @@ def get_station_ridership(
     df: pd.DataFrame,
 ):
     return dict(
-        df[(df["station_complex_id"] == complex_id) & (df["hours"] == hour)].iloc[0]
+        df[(df["station_complex_id"] == complex_id) & (df["hours"] == hour)]
     )
