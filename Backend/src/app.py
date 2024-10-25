@@ -14,9 +14,13 @@ def read_root():
 @app.get("/station_ridership/{complex_id}/{hour}")
 def station_ridership(complex_id: str, hour: str):
     df["hours"] = df["hours"].astype(str)
-    return dict(
+    json_return = dict(
         df[(df["station_complex_id"] == complex_id) & (df["hours"] == hour)].iloc[0]
     )
+
+    json_return["avg"] = df[df["hours"] == hour]["sum_ridership"].mean()
+
+    return json_return
 
 
 @app.get("/all_stations/{hour}")
