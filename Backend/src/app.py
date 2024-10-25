@@ -22,7 +22,9 @@ def station_ridership(complex_id: str, hour: str):
 @app.get("/all_stations/{hour}")
 def all_stations(hour: str):
     df["hours"] = df["hours"].astype(str)
-    return dict(df[df["hours"] == hour].set_index("station_complex_id").T)
+    json_return = dict(df[df["hours"] == hour].set_index("station_complex_id").T)
+    json_return["avg"] = df[df["hours"] == hour]["sum_ridership"].mean()
+    return json_return
 
 
 @app.get("/stations_at_hour/{hour}")
@@ -33,6 +35,11 @@ def stations_at_hour(request: Request, hour: str):
     filtered_df = df[df["station_complex_id"].isin(stations) & (df["hours"] == hour)][
         ["station_complex_id", "sum_ridership"]
     ].set_index("station_complex_id")
+
+    json_return = dict(filtered_df.T)
+    json_return["avg"] = filtered_df[filtered_df["hours"] == hour][
+        "sum_ridership"
+    ].mean()
 
     return dict(filtered_df.T)
 
