@@ -28,6 +28,8 @@ Station/Booth Mapping: Excel (Dongress special guest Ricky Li [@swagasianninja](
 
 [Station Directory with coordinates](https://data.ny.gov/Transportation/MTA-Subway-Stations/39hk-dx4f/about_data) -- Information for populating the front end for each complex ID accurately, with proper human readable naming conventions.
 
+[Subway Lines](https://data.cityofnewyork.us/Transportation/Subway-Lines/3qz8-muuu) -- Used to render the colored subway lines on the frontend site
+
 
 # References
 [NYC Turnstile Counts](https://github.com/qri-io/data-stories-scripts/tree/master/nyc-turnstile-counts) - exploring turnstile counts and mappings of units, booths, and remotes
