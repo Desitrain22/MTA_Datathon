@@ -31,21 +31,20 @@ def all_stations(hour: str):
     return json_return
 
 
-@app.get("/stations_at_hour/{hour}")
-def stations_at_hour(request: Request, hour: str):
-    body = request.json()
-    stations = body.get("stations", [])
+@app.post("/stations_at_hour/")
+async def submit_data(request: Request):
+    data = await request.json()
+    stations = data.get("stations")
+    hour = data.get("hour")
+    filtered_df = df[df["station_complex_id"].isin(stations) & (df["hours"] == hour)]
 
-    filtered_df = df[df["station_complex_id"].isin(stations) & (df["hours"] == hour)][
-        ["station_complex_id", "sum_ridership"]
-    ].set_index("station_complex_id")
-
-    json_return = dict(filtered_df.T)
+    
+    json_return = dict(filtered_df.set_index("station_complex_id").T)
     json_return["avg"] = filtered_df[filtered_df["hours"] == hour][
         "sum_ridership"
     ].mean()
 
-    return dict(filtered_df.T)
+    return dict(json_return)
 
 
 if __name__ == "__main__":

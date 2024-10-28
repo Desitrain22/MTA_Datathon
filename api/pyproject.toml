@@ -1,31 +1,17 @@
-[project]
-name = "mta-datathon"
+[tool.poetry]
+name = "api"
 version = "0.1.0"
-description = "Add your description here"
-authors = [
-    { name = "Neal Paresh Patel", email = "59032397+Desitrain22@users.noreply.github.com" }
-]
-dependencies = [
-    "pandas>=2.2.3",
-    "ipython>=8.28.0",
-    "ipykernel>=6.29.5",
-    "fastapi>=0.115.2",
-    "uvicorn>=0.32.0",
-    "xlrd>=2.0.1",
-]
+description = ""
+authors = ["Neal P. Patel <59032397+Desitrain22@users.noreply.github.com>"]
 readme = "README.md"
-requires-python = ">= 3.8"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.115.4"
+uvicorn = "^0.32.0"
+pandas = "^2.2.3"
+
 
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
-
-[tool.rye]
-managed = true
-dev-dependencies = []
-
-[tool.hatch.metadata]
-allow-direct-references = true
-
-[tool.hatch.build.targets.wheel]
-packages = ["src/mta_datathon"]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
