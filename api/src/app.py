@@ -38,7 +38,6 @@ async def submit_data(request: Request):
     hour = data.get("hour")
     filtered_df = df[df["station_complex_id"].isin(stations) & (df["hours"] == hour)]
 
-    
     json_return = dict(filtered_df.set_index("station_complex_id").T)
     json_return["avg"] = filtered_df[filtered_df["hours"] == hour][
         "sum_ridership"
@@ -47,6 +46,44 @@ async def submit_data(request: Request):
     return dict(json_return)
 
 
+@app.post("/stations_at_timespan/")
+async def stations_at_timespam(request: Request):
+    data = await request.json()
+    stations = data.get("stations")
+    timespan = data.get("timespan")
+
+    json_return = dict(
+        grouped_by_timespan[
+            grouped_by_timespan["station_complex_id"].isin(stations)
+            & (grouped_by_timespan["time_of_day"] == timespan)
+        ]
+        .set_index("station_complex_id")
+        .T
+    )
+
+    return dict(json_return)
+
+
 if __name__ == "__main__":
-    df = pd.read_json("src/outputs/new_ridership.json")
+    df = pd.read_json("src/outputs/new_ridership_time_strata.json")
+
+    grouped_by_timespan = (
+        df.groupby(["station_complex_id", "time_of_day"])["sum_ridership"]
+        .sum()
+        .reset_index()
+    )
+
+    avg_by_timespan = (
+        grouped_by_timespan.groupby(["station_complex_id"])["sum_ridership"]
+        .mean()
+        .reset_index()
+        .rename(columns={"sum_ridership": "mean_ridership"})
+    )
+
+    grouped_by_timespan = (
+        grouped_by_timespan.set_index("station_complex_id")
+        .join(avg_by_timespan.set_index("station_complex_id")["mean_ridership"])
+        .reset_index()
+    )
+
     uvicorn.run(app, host="0.0.0.0", port=8000)
