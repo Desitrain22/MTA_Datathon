@@ -1,6 +1,5 @@
 from fastapi import FastAPI
 import pandas as pd
-import uvicorn
 from fastapi import Request
 
 app = FastAPI()
@@ -28,6 +27,7 @@ def station_ridership(complex_id: str, hour: str):
         }
         Where there are on average 100 unique riders swiping in to the station from 10 to 11 A.M.
     """
+    df = pd.read_json("outputs/new_ridership_time_strata.json")
 
     df["hours"] = df["hours"].astype(str)
     json_return = dict(
@@ -64,6 +64,8 @@ async def stations_at_hour(request: Request):
     data = await request.json()
     stations = data.get("stations")
     hour = data.get("hour")
+    df = pd.read_json("outputs/new_ridership_time_strata.json")
+
     filtered_df = df[df["station_complex_id"].isin(stations) & (df["hours"] == hour)]
 
     json_return = dict(filtered_df.set_index("station_complex_id").T)
@@ -74,6 +76,8 @@ async def stations_at_hour(request: Request):
 @app.get("/all_stations/{hour}")
 def all_stations(hour: str):
     """Given an hour, returns the ridership for all stations at that hour. Note that the hour is formatted without any leading zeros"""
+    df = pd.read_json("outputs/new_ridership_time_strata.json")
+
     df["hours"] = df["hours"].astype(str)
     json_return = dict(df[df["hours"] == hour].set_index("station_complex_id").T)
     json_return["avg"] = df[df["hours"] == hour]["sum_ridership"].mean()
