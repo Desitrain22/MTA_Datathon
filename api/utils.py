@@ -1,4 +1,14 @@
 import pandas as pd
+from enum import Enum
+
+
+class TimeOfDay(Enum):
+    EARLY_MORNING = "Early Morning"
+    MORNING = "Morning"
+    MIDDAY = "Midday"
+    AFTERNOON = "afternoon"
+    EVENING = "evening"
+    OVERNIGHT = "night"
 
 
 def get_mean_hourly_ridership(

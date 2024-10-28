@@ -108,7 +108,7 @@ async def stations_at_timespam(request: Request):
                 "mean_ridership": 5092.022553230317
             }
         }
-        This means that in the afternoon, station 1 averages 1963 riders over the course of the 4 hour time span. 
+        This means that in the afternoon, station 1 averages 1963 riders over the course of the 4 hour time span.
         Over all time spans, station 1 averages 1506 riders, meaning the afternoon is relatively high traffic.
 
     """
@@ -116,20 +116,7 @@ async def stations_at_timespam(request: Request):
     stations = data.get("stations")
     timespan = data.get("timespan")
 
-    json_return = dict(
-        grouped_by_timespan[
-            grouped_by_timespan["station_complex_id"].isin(stations)
-            & (grouped_by_timespan["time_of_day"] == timespan)
-        ]
-        .set_index("station_complex_id")
-        .T
-    )
-
-    return dict(json_return)
-
-
-if __name__ == "__main__":
-    df = pd.read_json("src/outputs/new_ridership_time_strata.json")
+    df = pd.read_json("outputs/new_ridership_time_strata.json")
 
     grouped_by_timespan = (
         df.groupby(["station_complex_id", "time_of_day"])["sum_ridership"]
@@ -150,4 +137,14 @@ if __name__ == "__main__":
         .reset_index()
     )
 
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    json_return = dict(
+        grouped_by_timespan[
+            grouped_by_timespan["station_complex_id"].isin(stations)
+            & (grouped_by_timespan["time_of_day"] == timespan)
+        ]
+        .set_index("station_complex_id")
+        .T
+    )
+
+    return dict(json_return)
+
